@@ -12,6 +12,12 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Pokemon({ pokemon }) {
+  const trackClick = () => {
+    window.gtag('event', 'VIP/ACTION', {
+      value: pokemon.name
+    })
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +35,7 @@ export default function Pokemon({ pokemon }) {
         </div>
 
         <div className={styles.grid}>
-          <button type='button'>Capturar</button>
+          <button type='button' onClick={(e) => trackClick()}>Capturar</button>
         </div>
       </main>
     </div>
