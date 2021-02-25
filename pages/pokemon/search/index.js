@@ -18,6 +18,12 @@ export default function Pokemon({ pokemon }) {
     })
   }
 
+  const trackBack = () => {
+    window.gtag('event', 'VIP/BACK', {
+      value: pokemon.name
+    })
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -36,6 +42,9 @@ export default function Pokemon({ pokemon }) {
 
         <div className={styles.grid}>
           <button type='button' onClick={(e) => trackClick()}>Capturar</button>
+        </div>
+        <div className={styles.grid}>
+          <button type='button' onClick={(e) => trackBack()}>Volver</button>
         </div>
       </main>
     </div>
